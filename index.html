@@ -18,7 +18,7 @@
   .chip { font-size:10px; font-weight:700; border-radius:5px; padding:3px 7px; }
   .b-reuse { background:#EBF5FF; color:#0052E0; }
   .b-new { background:#FFF8E6; color:#B36A00; }
-  .b-cond { background:#fff; color:#E5733B; border:1.5px dashed #F0A878; }
+  .b-cond { background:#F2EEFF; color:#6B3FD4; border:1.5px dashed #B9A6F0; }
 
   .flow-wrap { overflow-x:auto; padding-bottom:8px; }
   .flow { display:inline-flex; align-items:flex-start; }
@@ -30,9 +30,9 @@
   .arrow svg { width:18px; height:18px; }
 
   .card { width:212px; border-radius:18px; overflow:hidden; position:relative; border:1px solid #E5E8EF; background:#fff; box-shadow:0 2px 8px rgba(20,26,36,.05); }
-  .card.cond { border:2px dashed #F0A878; }
+  .card.cond { border:2px dashed #B9A6F0; }
   .cap { position:absolute; top:10px; right:10px; z-index:5; font-size:10px; font-weight:700; border-radius:6px; padding:3px 7px; }
-  .condtag { position:absolute; top:10px; left:10px; z-index:5; font-size:10px; font-weight:700; color:#E5733B; background:#FFF3EB; border-radius:6px; padding:3px 7px; }
+  .condtag { position:absolute; top:10px; left:10px; z-index:5; font-size:10px; font-weight:700; color:#6B3FD4; background:#F2EEFF; border-radius:6px; padding:3px 7px; }
   .card img { width:100%; display:block; }
 
   .mock { width:212px; height:459px; background:#fff; display:flex; flex-direction:column; }
@@ -45,13 +45,10 @@
   .cta.sec { background:#EBF5FF; color:#0052E0; }
   .mk-h { font-size:15px; font-weight:700; margin-bottom:12px; }
 
-  .kakao { background:#9BB5CC; border-radius:14px; padding:10px; }
-  .kakao .hd { font-size:10px; font-weight:700; color:#42301c; margin-bottom:7px; }
-  .kakao .bubble { background:#fff; border-radius:12px; padding:12px; }
-  .kakao .icon { width:34px; height:34px; border-radius:9px; background:#EBF5FF; display:flex; align-items:center; justify-content:center; margin-bottom:9px; }
-  .kakao .bt { font-size:12px; font-weight:700; margin-bottom:5px; line-height:17px; }
-  .kakao .bd { font-size:10.5px; color:#697383; line-height:16px; }
-  .kakao .lk { margin-top:11px; background:#0078FF; border-radius:9px; padding:10px 0; text-align:center; font-size:11px; font-weight:700; color:#fff; }
+  .atk { background:#fff; border-radius:10px; overflow:hidden; border:1px solid #E5E8EF; }
+  .atk .hd { background:#FEE500; color:#3C1E1E; font-size:11px; font-weight:700; padding:7px 12px; }
+  .atk .bd { padding:12px; font-size:11px; color:#354153; line-height:18px; }
+  .atk .btn { border-top:1px solid #EEF0F4; padding:11px 0; text-align:center; font-size:11.5px; font-weight:600; color:#3C1E1E; }
 
   .pay-card { background:#F9F9FB; border-radius:11px; padding:12px; margin-bottom:9px; }
   .pay-line { display:flex; align-items:center; justify-content:space-between; font-size:11px; padding:4px 0; }
@@ -72,9 +69,9 @@
   .cond-row { display:inline-flex; align-items:flex-start; margin-top:14px; }
   .cond-slot { width:212px; flex-shrink:0; }
   .cond-gap { width:28px; flex-shrink:0; }
-  .cond-box { background:#FFF3EB; border:1px solid #F5C9A8; border-radius:10px; padding:10px 12px; }
-  .cond-box .t { font-size:11px; font-weight:700; color:#E5733B; margin-bottom:3px; }
-  .cond-box .d { font-size:11px; color:#9A5B38; line-height:16px; }
+  .cond-box { background:#F2EEFF; border:1px solid #D9CCF7; border-radius:10px; padding:10px 12px; }
+  .cond-box .t { font-size:11px; font-weight:700; color:#6B3FD4; margin-bottom:3px; }
+  .cond-box .d { font-size:11px; color:#5B47A0; line-height:16px; }
 
   .summary { background:#fff; border:1px solid #E5E8EF; border-radius:12px; padding:18px 20px; margin-top:30px; }
   .summary h3 { font-size:14px; font-weight:700; margin-bottom:12px; }
@@ -105,15 +102,11 @@
           <span class="cap b-new">신규개발</span>
           <div class="mock">
             <div class="mk-stat">9:41</div>
-            <div class="mk-body" style="padding-top:30px;">
-              <div class="kakao">
-                <div class="hd">쏘카 알림톡</div>
-                <div class="bubble">
-                  <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></div>
-                  <div class="bt">예약하신 차량에<br>카시트를 추가해보세요</div>
-                  <div class="bd">아이와 함께 떠나시나요? 출발 전 카시트를 미리 신청하면 편하게 픽업할 수 있어요.</div>
-                  <div class="lk">부가서비스 추가하기</div>
-                </div>
+            <div class="mk-body" style="padding-top:26px; background:#9BB5CC;">
+              <div class="atk">
+                <div class="hd">쏘카</div>
+                <div class="bd">안녕하세요, 쏘카입니다.<br><br>예약하신 차량에 카시트와 유모차를 추가하실 수 있습니다.<br><br>출발 전 미리 신청하면 편하게 픽업할 수 있어요.</div>
+                <div class="btn">부가서비스 추가하기</div>
               </div>
             </div>
           </div>
