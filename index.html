@@ -59,6 +59,10 @@
   .pay-method { display:flex; align-items:center; gap:7px; font-size:11px; color:#354153; font-weight:600; }
   .pay-method .dot { width:22px; height:14px; border-radius:3px; background:#354153; flex-shrink:0; }
   .mk-note { font-size:10px; color:#99A1B1; margin-top:6px; line-height:14px; }
+  .agree { display:flex; align-items:center; gap:6px; font-size:10.5px; color:#354153; margin-top:11px; }
+  .agree .chk { width:15px; height:15px; border-radius:4px; background:#0078FF; flex-shrink:0; position:relative; }
+  .agree .chk:after { content:''; position:absolute; left:5px; top:2px; width:3px; height:7px; border:solid #fff; border-width:0 1.5px 1.5px 0; transform:rotate(45deg); }
+  .agree .lk { color:#99A1B1; text-decoration:underline; margin-left:auto; }
 
   .done { text-align:center; padding-top:48px; }
   .done .circle { width:60px; height:60px; margin:0 auto 16px; }
@@ -157,6 +161,7 @@
               </div>
               <div class="pay-card"><div class="pay-method"><span class="dot"></span>등록된 결제수단</div></div>
               <div class="mk-note">기존 예약에 추가 청구됩니다 (단가는 예시)</div>
+              <div class="agree"><span class="chk"></span>부가서비스 이용약관 동의 (필수)<span class="lk">보기</span></div>
             </div>
             <div class="mk-cta"><div class="cta">10,000원 결제하기</div></div>
           </div>
