@@ -19,6 +19,7 @@
   .b-reuse { background:#EBF5FF; color:#0052E0; }
   .b-new { background:#FFF8E6; color:#B36A00; }
   .b-cond { background:#F2EEFF; color:#6B3FD4; border:1.5px dashed #B9A6F0; }
+  .b-entry { background:#EFF6F0; color:#1F7A4D; }
 
   /* 경로 섹션 */
   .path-sec { background:#fff; border:1px solid #E5E8EF; border-radius:14px; padding:18px 20px 22px; margin-bottom:20px; }
@@ -205,6 +206,7 @@
     <div class="lg-item"><span class="chip b-reuse">재사용</span>기존 화면 그대로 (실제 디자인)</div>
     <div class="lg-item"><span class="chip b-new">신규개발</span>새로 만드는 화면 (mockup)</div>
     <div class="lg-item"><span class="chip b-cond">조건부</span>경우에 따라 건너뛰는 단계</div>
+    <div class="lg-item"><span class="chip b-entry">진입수단</span>화면 아님 (딥링크·알림톡 등 진입 경로)</div>
   </div>
 
   <!-- ============ 경로 1: 쏘카 회원 (연동 불필요) ============ -->
@@ -261,18 +263,18 @@
       <div class="step">
         <div class="step-head"><div class="no" style="color:#6B3FD4;">방법 (b)</div><div class="nm">딥링크 누르면 자동 연동 (연동+진입 한 번에)</div></div>
         <div class="card">
-          <span class="cap b-new">신규개발</span>
+          <span class="cap b-entry">진입수단</span>
           <div class="mock">
             <div class="mk-stat">9:41</div>
             <div class="mk-bar"><svg class="bk" viewBox="0 0 24 24"><path style="fill:#1C1E21;" d="M16.3 21.3a1 1 0 0 1-1.4 0l-8.6-8.6a1 1 0 0 1 0-1.4l8.6-8.6a1 1 0 1 1 1.4 1.4L8.4 12l7.9 7.9a1 1 0 0 1 0 1.4Z"/></svg></div>
             <div class="mk-body">
-              <div class="mk-h">예약 확인</div>
+              <div class="mk-h">예약코드 입력 (코드 자동 입력 상태)</div>
               <div class="pay-card">
                 <div class="pay-line"><span class="k">예약코드</span><span class="v">SC-8X3K9P</span></div>
                 <div class="pay-line"><span class="k">차량</span><span class="v">카니발</span></div>
                 <div class="pay-line"><span class="k">대여 기간</span><span class="v">6/30~7/2</span></div>
               </div>
-              <div class="mk-note">알림톡 딥링크를 누르면 예약코드가 자동 입력되어 연동됩니다. 로그인 후 바로 진입으로 이어집니다(연동과 진입 한 번에).</div>
+              <div class="mk-note">딥링크는 화면이 아니라 진입 수단입니다. 알림톡 딥링크를 누르면 예약코드 입력 화면(기존 화면 재사용)이 코드 자동 입력 상태로 열려 연동됩니다. 로그인 후 바로 진입으로 이어집니다(연동과 진입 한 번에).</div>
             </div>
             <div class="mk-cta"><div class="cta">로그인하고 연동하기</div></div>
           </div>
@@ -298,7 +300,7 @@
       <div class="step">
         <div class="step-head"><div class="no" style="color:#0052E0;">진입 ①</div><div class="nm">이용내역 노출 → 배너 진입</div></div>
         <div class="card">
-          <span class="cap b-new">신규개발</span>
+          <span class="cap b-reuse">재사용</span>
           <div class="mock">
             <div class="mk-stat">9:41</div>
             <div class="mk-bar"><svg class="bk" viewBox="0 0 24 24"><path style="fill:#1C1E21;" d="M16.3 21.3a1 1 0 0 1-1.4 0l-8.6-8.6a1 1 0 0 1 0-1.4l8.6-8.6a1 1 0 1 1 1.4 1.4L8.4 12l7.9 7.9a1 1 0 0 1 0 1.4Z"/></svg></div>
@@ -320,6 +322,7 @@
       </div>
 
     </div></div>
+    <div class="cap-note" style="color:#B36A00; background:#FFF8E6; border-color:#F2E2B8;">이용내역 상세 화면은 <b>기존 화면 그대로 재사용</b>. 이 화면 안의 <b>부가서비스 추가하기 배너 콜아웃</b>만 신규 개발(socar-server-frontend). 알림톡 딥링크로 진입해도 같은 화면에 도달</div>
     <div class="join-note p2">진입 후 경로 1과 동일하게 옵션 선택부터 공통 본 흐름으로 합류 &#8595;</div>
   </div>
 
@@ -445,7 +448,7 @@
         <tr><td class="lbl">진입 경로</td><td>① 이용내역 상세 배너 / ② 알림톡 딥링크</td><td>① 이용내역 상세 배너 / ② 알림톡 딥링크 (방법 b는 연동과 진입이 한 번에)</td></tr>
         <tr><td class="lbl">예약코드</td><td>이미 보유</td><td>직접 입력(a) 또는 딥링크에 실려 자동(b)</td></tr>
         <tr><td class="lbl">합류 지점</td><td>진입 후 옵션 선택부터</td><td>연동 → 진입 후 옵션 선택부터</td></tr>
-        <tr><td class="lbl">신규 개발 화면</td><td>이용내역 배너, 결제 확인</td><td>이용내역 배너, 딥링크 예약확인, 결제 확인 (로그인·예약코드 입력 재사용)</td></tr>
+        <tr><td class="lbl">신규 개발</td><td>이용내역 배너 콜아웃, 결제 확인 (2개)</td><td>이용내역 배너 콜아웃, 결제 확인 (2개) — 로그인·예약코드 입력·딥링크는 재사용/진입수단</td></tr>
         <tr><td class="lbl">이후 공통</td><td colspan="2" style="text-align:center;">옵션 선택 → 설치 위치(카시트만) → 결제 확인 → PIN 인증(계좌이체만) → 추가 청구 → 완료</td></tr>
       </tbody>
     </table>
@@ -459,9 +462,14 @@
     </div>
     <div class="blk">
       <span class="lbl b-new">신규개발 (mockup)</span>
-      <p>추가구매용 결제 확인(웹), 이용내역 진입 배너(socar-server-frontend). 지금 옵션 웹뷰는 신규 예약 결제로만 연결돼 추가구매용 결제 화면 없음</p>
+      <p>딱 2개. ① 추가구매용 결제 확인(웹) ② 이용내역 상세 배너 콜아웃(socar-server-frontend). 둘 다 놀 전용 아닌 공통. 지금 옵션 웹뷰는 신규 예약 결제로만 연결돼 추가구매용 결제 화면 없음</p>
+    </div>
+    <div class="blk">
+      <span class="lbl b-entry">진입수단 (화면 아님)</span>
+      <p>딥링크와 알림톡은 화면이 아니라 진입 경로. 딥링크 진입은 예약코드 입력 화면(재사용)을 코드 자동 입력 상태로 보여주는 것</p>
     </div>
     <div class="note">
+      <p>놀 예약자는 놀 전용 신규 개발 화면 없이 기존 화면을 재사용. 예약코드 연동 후 딥링크 알림톡 또는 이용내역 배너로 진입</p>
       <p>진입은 2가지(이용내역 상세 배너 / 알림톡 딥링크). 놀 예약자는 진입 전 쏘카 회원 연동 필요(본인 코드 직접 입력 또는 딥링크 자동 연동). 쏘카 회원은 연동 불필요</p>
       <p>알림톡 딥링크는 쏘카가 대상 예약코드·딥링크를 놀에 제공. 쏘카가 고객에게 직접 발송하지 않음</p>
       <p>결제수단은 예약 결제수단을 자동 사용. 변경은 제공하지 않으며 안내 문구로 표시</p>
