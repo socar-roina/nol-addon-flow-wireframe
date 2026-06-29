@@ -138,12 +138,53 @@
   table.case-tbl td.lbl { background:#FAFBFD; font-weight:600; color:#354153; white-space:nowrap; }
   table.case-tbl .yes { color:#0AA66E; font-weight:700; }
   table.case-tbl .no { color:#99A1B1; }
+
+  /* 전체 플로우 한눈에 요약 */
+  .overview { background:#fff; border:1px solid #E5E8EF; border-radius:14px; padding:18px 20px 20px; margin:18px 0 22px; }
+  .overview h3 { font-size:14px; font-weight:700; color:#141A24; margin-bottom:4px; }
+  .overview .ov-sub { font-size:12px; color:#697383; line-height:19px; margin-bottom:14px; }
+  .ov-flow { display:flex; align-items:stretch; flex-wrap:nowrap; overflow-x:auto; gap:0; padding-bottom:6px; }
+  .ov-entry { display:flex; flex-direction:column; gap:8px; flex-shrink:0; }
+  .ov-box { border-radius:10px; padding:9px 12px; font-size:11.5px; line-height:16px; flex-shrink:0; }
+  .ov-box .bt { font-weight:700; font-size:11px; margin-bottom:2px; }
+  .ov-e1 { background:#EBF5FF; color:#0052E0; border:1px solid #CDE4FF; }
+  .ov-e2 { background:#F2EEFF; color:#6B3FD4; border:1px solid #E0D6FA; }
+  .ov-e3 { background:#E6F7F0; color:#0AA66E; border:1px solid #C9EEDE; }
+  .ov-common { background:#F4F6FB; color:#354153; border:1px solid #E1E6F0; }
+  .ov-common .bt { color:#141A24; }
+  .ov-arrow { flex-shrink:0; display:flex; align-items:center; justify-content:center; width:34px; color:#B4BBCB; font-size:18px; font-weight:700; }
+  .ov-join { flex-shrink:0; display:flex; align-items:center; justify-content:center; width:46px; font-size:10.5px; font-weight:700; color:#697383; text-align:center; line-height:13px; }
+  .ov-common-wrap { display:flex; align-items:center; flex-wrap:nowrap; gap:0; flex-shrink:0; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="page-title">놀 채널 부가서비스(카시트, 유모차) 예약 후 추가구매 플로우</div>
   <div class="page-sub">진입 경로 3가지(쏘카 회원 / 놀 예약자 미연동 / 놀 예약자 본인 코드 입력)가 공통 본 흐름으로 합류<br>공통 전제: 대상 존(제주·부산·동대구·서울)·대상 차종(블랙라벨 등)·재고·운영시간·리드타임 충족 예약만 구매 가능</div>
+
+  <div class="overview">
+    <h3>전체 플로우 한눈에</h3>
+    <div class="ov-sub">진입 3경로(쏘카 회원 / 놀 미연동 / 놀 본인코드 입력)가 하나의 공통 흐름으로 합류. 아래는 한 줄 요약이며, 각 경로의 화면별 상세는 이 아래 섹션 참고</div>
+    <div class="ov-flow">
+      <div class="ov-entry">
+        <div class="ov-box ov-e1"><div class="bt">진입 ① 쏘카 회원</div>이용내역 배너에서 진입</div>
+        <div class="ov-box ov-e2"><div class="bt">진입 ② 놀 미연동</div>놀 발송 딥링크 → 로그인·연동</div>
+        <div class="ov-box ov-e3"><div class="bt">진입 ③ 놀 본인코드</div>코드 입력 → 이용내역 배너</div>
+      </div>
+      <div class="ov-join">합류 &#8594;</div>
+      <div class="ov-common-wrap">
+        <div class="ov-box ov-common"><div class="bt">공통</div>옵션 선택</div>
+        <div class="ov-arrow">&#8594;</div>
+        <div class="ov-box ov-common">결제 확인<br>(예약 결제수단 자동)</div>
+        <div class="ov-arrow">&#8594;</div>
+        <div class="ov-box ov-common">쏘카페이 계좌이체면<br>PIN 인증 (조건부)</div>
+        <div class="ov-arrow">&#8594;</div>
+        <div class="ov-box ov-common">추가 청구</div>
+        <div class="ov-arrow">&#8594;</div>
+        <div class="ov-box ov-common">완료</div>
+      </div>
+    </div>
+  </div>
 
   <div class="legend">
     <div class="lg-item"><span class="chip b-reuse">재사용</span>기존 화면 그대로 (실제 디자인)</div>
@@ -238,7 +279,7 @@
       <div class="step">
         <div class="step-head"><div class="no">1</div><div class="nm">예약코드 직접 입력</div></div>
         <div class="card">
-          <span class="cap b-new">신규개발</span>
+          <span class="cap b-reuse">재사용</span>
           <div class="mock">
             <div class="mk-stat">9:41</div>
             <div class="mk-bar"><svg class="bk" viewBox="0 0 24 24"><path style="fill:#1C1E21;" d="M16.3 21.3a1 1 0 0 1-1.4 0l-8.6-8.6a1 1 0 0 1 0-1.4l8.6-8.6a1 1 0 1 1 1.4 1.4L8.4 12l7.9 7.9a1 1 0 0 1 0 1.4Z"/></svg></div>
@@ -334,7 +375,7 @@
         <div class="step-head"><div class="no">4</div><div class="nm">쏘카페이 PIN 인증</div></div>
         <div class="card cond">
           <span class="condtag">조건부</span>
-          <span class="cap b-new">신규개발</span>
+          <span class="cap b-reuse">재사용</span>
           <div class="mock">
             <div class="mk-stat">9:41</div>
             <div class="mk-bar"><svg class="bk" viewBox="0 0 24 24"><path style="fill:#1C1E21;" d="M16.3 21.3a1 1 0 0 1-1.4 0l-8.6-8.6a1 1 0 0 1 0-1.4l8.6-8.6a1 1 0 1 1 1.4 1.4L8.4 12l7.9 7.9a1 1 0 0 1 0 1.4Z"/></svg></div>
@@ -349,7 +390,7 @@
                   <div class="key">7</div><div class="key">8</div><div class="key">9</div>
                   <div class="key empty">.</div><div class="key">0</div><div class="key">&#9003;</div>
                 </div>
-                <div class="pin-foot">쏘카페이 계좌이체 결제수단일 때만 거치는 단계 (서버 인증 화면 경유)</div>
+                <div class="pin-foot">쏘카페이 계좌이체 결제수단일 때만 거치는 단계 (기존 쏘카 PIN 화면 재사용, 서버 호스팅 화면으로 리다이렉트)</div>
               </div>
             </div>
           </div>
@@ -384,7 +425,7 @@
       <div class="cond-gap"></div>
       <div class="cond-slot"></div>
       <div class="cond-gap"></div>
-      <div class="cond-slot"><div class="cond-box"><div class="t">계좌이체일 때만 거침</div><div class="d">쏘카페이 계좌이체 결제수단일 때만 PIN 인증. 그 외 결제수단은 건너뜀</div></div></div>
+      <div class="cond-slot"><div class="cond-box"><div class="t">계좌이체일 때만 거침</div><div class="d">쏘카페이 계좌이체 결제수단일 때만 PIN 인증(기존 쏘카 PIN 화면 재사용). 그 외 결제수단은 건너뜀</div></div></div>
       <div class="cond-gap"></div>
       <div class="cond-slot"></div>
     </div>
@@ -407,7 +448,7 @@
         <tr><td class="lbl">로그인·가입</td><td class="no">불필요 (로그인 상태)</td><td class="yes">필요</td><td>필요할 수 있음</td></tr>
         <tr><td class="lbl">회원 연동</td><td class="no">불필요</td><td class="yes">필요 (로그인 후 연동)</td><td class="yes">필요 (코드 입력으로 연동)</td></tr>
         <tr><td class="lbl">합류 지점</td><td>옵션 선택부터</td><td>연동 후 옵션 선택부터</td><td>배너 진입 후 경로 1과 합류</td></tr>
-        <tr><td class="lbl">신규 개발 화면</td><td>이용내역 배너</td><td>딥링크 예약확인, (로그인 재사용)</td><td>예약코드 입력, 이용내역 배너</td></tr>
+        <tr><td class="lbl">신규 개발 화면</td><td>이용내역 배너, 결제 확인</td><td>딥링크 예약확인, 결제 확인 (로그인·예약코드 입력 재사용)</td><td>이용내역 배너, 결제 확인 (예약코드 입력 재사용)</td></tr>
         <tr><td class="lbl">이후 공통</td><td colspan="3" style="text-align:center;">옵션 선택 → 설치 위치(카시트만) → 결제 확인 → PIN 인증(계좌이체만) → 추가 청구 → 완료</td></tr>
       </tbody>
     </table>
@@ -417,17 +458,17 @@
     <h3>재사용과 신규</h3>
     <div class="blk">
       <span class="lbl b-reuse">재사용 (실제 화면)</span>
-      <p>로그인(아이디 또는 이메일, 비밀번호), 옵션 선택, 설치 위치, 완료. 기존 화면을 그대로 사용</p>
+      <p>로그인·가입, 예약코드 입력, 옵션 선택, 설치 위치, 완료(문구만 변경), 쏘카페이 PIN 인증(서버 호스팅 화면 리다이렉트). 기존 화면을 그대로 사용</p>
     </div>
     <div class="blk">
       <span class="lbl b-new">신규개발 (mockup)</span>
-      <p>이용내역 상세 진입 배너, 딥링크 예약 확인, 예약코드 입력, 추가구매용 결제 확인, 쏘카페이 PIN 인증. 지금 옵션 웹뷰는 신규 예약 결제로만 연결돼 추가구매용 결제 화면 없음</p>
+      <p>추가구매용 결제 확인(웹), 이용내역 진입 배너(socar-server-frontend). 지금 옵션 웹뷰는 신규 예약 결제로만 연결돼 추가구매용 결제 화면 없음</p>
     </div>
     <div class="note">
       <p>경로 2 딥링크는 쏘카가 대상 예약코드·딥링크를 놀에 제공. 쏘카가 고객에게 직접 발송하지 않음</p>
       <p>결제수단은 예약 결제수단을 자동 사용. 변경은 제공하지 않으며 안내 문구로 표시</p>
       <p>결제는 시간 연장과 같은 방식으로 기존 예약에 추가 청구. 신규 예약 결제가 아님</p>
-      <p>쏘카페이 계좌이체 결제수단이면 결제 전 PIN 인증 단계를 서버 화면 경유로 거침. 그 외 결제수단은 생략</p>
+      <p>쏘카페이 계좌이체 결제수단이면 결제 전 PIN 인증 단계를 거침. 기존 쏘카 PIN 화면(서버 호스팅)으로 리다이렉트하므로 신규 개발 아님. 그 외 결제수단은 생략</p>
       <p>단가는 예시 (제주 기준 하루 10,000원). 카시트와 유모차 통합 구매(장바구니) 화면은 이번 범위 아님 (추후)</p>
     </div>
   </div>
