@@ -135,55 +135,55 @@
   .overview { background:#fff; border:1px solid #E5E8EF; border-radius:14px; padding:18px 20px 20px; margin:18px 0 22px; }
   .overview h3 { font-size:14px; font-weight:700; color:#141A24; margin-bottom:4px; }
   .overview .o-sub { font-size:11.5px; color:#697383; line-height:17px; margin-bottom:14px; }
-  .mind { display:flex; align-items:center; flex-wrap:nowrap; overflow-x:auto; gap:0; padding-bottom:8px; }
+  .mind { display:flex; align-items:center; flex-wrap:nowrap; overflow-x:auto; gap:0; padding-bottom:12px; width:max-content; max-width:100%; }
 
   /* 썸네일 노드 (실제 화면 작은 이미지 + 한 단어 라벨) */
-  .tn { flex-shrink:0; width:96px; display:flex; flex-direction:column; align-items:center; gap:5px; position:relative; }
-  .tn-frame { width:90px; height:185px; border-radius:13px; overflow:hidden; border:1px solid #D7DCE5; background:#fff; box-shadow:0 2px 7px rgba(20,26,36,.08); position:relative; }
+  .tn { flex-shrink:0; width:236px; display:flex; flex-direction:column; align-items:center; gap:9px; position:relative; }
+  .tn-frame { width:224px; height:462px; border-radius:22px; overflow:hidden; border:1px solid #D7DCE5; background:#fff; box-shadow:0 3px 12px rgba(20,26,36,.10); position:relative; }
   .tn-frame img { width:100%; display:block; }
-  .tn-frame.new { border:2px solid #F0B23A; box-shadow:0 2px 7px rgba(179,106,0,.16); }
-  .tn-lbl { font-size:11px; font-weight:700; color:#354153; text-align:center; line-height:14px; }
-  .tn-badge { position:absolute; top:6px; left:50%; transform:translateX(-50%); font-size:8.5px; font-weight:700; border-radius:5px; padding:2px 6px; z-index:3; white-space:nowrap; }
+  .tn-frame.new { border:2px solid #F0B23A; box-shadow:0 3px 12px rgba(179,106,0,.18); }
+  .tn-lbl { font-size:15px; font-weight:700; color:#354153; text-align:center; line-height:19px; }
+  .tn-badge { position:absolute; top:12px; left:50%; transform:translateX(-50%); font-size:12px; font-weight:700; border-radius:7px; padding:4px 11px; z-index:3; white-space:nowrap; }
   .tn-badge.new { background:#FFF2D6; color:#9A5A00; }
   /* 썸네일 내부 미니 목업 (실제 캡처 없는 단계) */
   .mini { width:100%; height:100%; background:#fff; display:flex; flex-direction:column; }
-  .mini .mb { height:13px; display:flex; align-items:center; padding:0 7px; font-size:6px; font-weight:700; color:#141A24; flex-shrink:0; }
-  .mini .mbody { flex:1; padding:8px 8px 0; overflow:hidden; }
-  .mini .mh { font-size:8px; font-weight:700; color:#141A24; margin-bottom:6px; }
-  .mini .mrow { display:flex; justify-content:space-between; font-size:6.5px; color:#697383; padding:2.5px 0; }
-  .mini .mrow.t { border-top:1px solid #E5E8EF; margin-top:3px; padding-top:5px; color:#0078FF; font-weight:700; }
-  .mini .mcard { background:#F7F8FB; border-radius:6px; padding:6px 7px; margin-bottom:5px; }
-  .mini .mcta { margin:auto 8px 9px; background:#0078FF; color:#fff; font-size:7px; font-weight:700; text-align:center; border-radius:7px; padding:7px 0; }
+  .mini .mb { height:30px; display:flex; align-items:center; padding:0 16px; font-size:13px; font-weight:700; color:#141A24; flex-shrink:0; }
+  .mini .mbody { flex:1; padding:18px 18px 0; overflow:hidden; }
+  .mini .mh { font-size:18px; font-weight:700; color:#141A24; margin-bottom:14px; }
+  .mini .mrow { display:flex; justify-content:space-between; font-size:14px; color:#697383; padding:6px 0; }
+  .mini .mrow.t { border-top:1px solid #E5E8EF; margin-top:7px; padding-top:11px; color:#0078FF; font-weight:700; }
+  .mini .mcard { background:#F7F8FB; border-radius:13px; padding:14px 16px; margin-bottom:11px; }
+  .mini .mcta { margin:auto 18px 20px; background:#0078FF; color:#fff; font-size:15px; font-weight:700; text-align:center; border-radius:15px; padding:15px 0; }
   .mini .mcta.sec { background:#EBF5FF; color:#0052E0; }
-  .mini .mdone { text-align:center; padding-top:34px; }
-  .mini .mdone .mc { width:26px; height:26px; margin:0 auto 8px; }
-  .mini .mdone .mt { font-size:9px; font-weight:700; color:#141A24; }
-  .mini .mpin { text-align:center; padding-top:18px; }
-  .mini .mpin .pt { font-size:8px; font-weight:700; }
-  .mini .mpin .pd { display:flex; justify-content:center; gap:6px; margin:14px 0 10px; }
-  .mini .mpin .pd i { width:6px; height:6px; border-radius:50%; background:#C3CAD6; }
+  .mini .mdone { text-align:center; padding-top:80px; }
+  .mini .mdone .mc { width:60px; height:60px; margin:0 auto 18px; }
+  .mini .mdone .mt { font-size:20px; font-weight:700; color:#141A24; }
+  .mini .mpin { text-align:center; padding-top:44px; }
+  .mini .mpin .pt { font-size:18px; font-weight:700; }
+  .mini .mpin .pd { display:flex; justify-content:center; gap:14px; margin:32px 0 24px; }
+  .mini .mpin .pd i { width:14px; height:14px; border-radius:50%; background:#C3CAD6; }
   .mini .mpin .pd i.on { background:#0078FF; }
-  .mini .mpin .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px 3px; padding:0 14px; }
-  .mini .mpin .grid span { font-size:9px; font-weight:600; color:#141A24; text-align:center; }
+  .mini .mpin .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px 8px; padding:0 34px; }
+  .mini .mpin .grid span { font-size:21px; font-weight:600; color:#141A24; text-align:center; }
 
   /* 알림톡 딥링크 = 화면 아닌 진입 수단 (칩) */
-  .tn-chip { flex-shrink:0; width:96px; display:flex; flex-direction:column; align-items:center; gap:5px; }
-  .tn-chip .ck { width:84px; height:185px; border-radius:13px; border:1.5px dashed #C9B8F0; background:#F7F3FF; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:10px; text-align:center; }
-  .tn-chip .ck .ico { width:34px; height:34px; border-radius:10px; background:#EFE6FF; display:flex; align-items:center; justify-content:center; }
-  .tn-chip .ck .ico svg { width:20px; height:20px; }
-  .tn-chip .ck .kt { font-size:10px; font-weight:700; color:#6B3FD4; line-height:14px; }
-  .tn-chip .ck .ks { font-size:8.5px; color:#8A77C4; line-height:12px; }
+  .tn-chip { flex-shrink:0; width:236px; display:flex; flex-direction:column; align-items:center; gap:9px; }
+  .tn-chip .ck { width:210px; height:462px; border-radius:22px; border:2px dashed #C9B8F0; background:#F7F3FF; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; padding:24px; text-align:center; }
+  .tn-chip .ck .ico { width:74px; height:74px; border-radius:20px; background:#EFE6FF; display:flex; align-items:center; justify-content:center; }
+  .tn-chip .ck .ico svg { width:42px; height:42px; }
+  .tn-chip .ck .kt { font-size:19px; font-weight:700; color:#6B3FD4; line-height:26px; }
+  .tn-chip .ck .ks { font-size:15px; color:#8A77C4; line-height:21px; }
 
   /* 진입 분기 (왼쪽) */
-  .mind-branch { flex-shrink:0; display:flex; flex-direction:column; gap:10px; }
+  .mind-branch { flex-shrink:0; display:flex; flex-direction:column; gap:22px; }
   .mind-row { display:flex; align-items:center; gap:0; }
-  .mind-entrylbl { flex-shrink:0; font-size:9px; font-weight:700; color:#697383; width:62px; line-height:13px; text-align:right; padding-right:6px; }
+  .mind-entrylbl { flex-shrink:0; font-size:14px; font-weight:700; color:#697383; width:118px; line-height:19px; text-align:right; padding-right:14px; }
   /* 합류 브래킷 */
-  .mind-merge { flex-shrink:0; display:flex; align-items:center; width:26px; align-self:stretch; }
-  .mind-merge .brk { width:10px; height:150px; border:2px solid #C3CAD6; border-left:0; border-radius:0 10px 10px 0; }
+  .mind-merge { flex-shrink:0; display:flex; align-items:center; width:48px; align-self:stretch; }
+  .mind-merge .brk { width:18px; height:80%; border:2px solid #C3CAD6; border-left:0; border-radius:0 16px 16px 0; }
   .mind-merge .ln { flex:1; height:2px; background:#C3CAD6; }
-  .marr { flex-shrink:0; width:22px; display:flex; align-items:center; justify-content:center; color:#B4BBCB; font-size:17px; font-weight:700; align-self:center; height:185px; }
-  .o-legend { font-size:11px; color:#99A1B1; line-height:16px; margin-top:14px; }
+  .marr { flex-shrink:0; width:40px; display:flex; align-items:center; justify-content:center; color:#B4BBCB; font-size:30px; font-weight:700; align-self:center; height:462px; }
+  .o-legend { font-size:12px; color:#99A1B1; line-height:18px; margin-top:18px; }
   .o-legend b { color:#697383; }
 </style>
 </head>
