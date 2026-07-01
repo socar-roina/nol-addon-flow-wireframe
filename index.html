@@ -105,24 +105,22 @@
   .rail .rb { font-size:10.5px; font-weight:700; color:#3A4250; background:#F1F4F9; border:1px solid #DCE0E8; border-radius:6px; padding:5px 8px; }
   .rail .ra { color:#9AA3B2; font-size:12px; }
 
-  /* 배포 일정 간트 */
-  .sched { margin-top:28px; padding-top:22px; border-top:1px solid #DCE0E8; max-width:840px; }
-  .sched-h { font-size:16px; font-weight:800; color:#141A24; margin-bottom:20px; }
-  .gantt { position:relative; }
-  .g-axis { position:relative; height:42px; }
-  .g-tick { position:absolute; top:0; }
-  .g-tick .g-d { display:block; font-size:13px; font-weight:800; color:#141A24; }
-  .g-tick .g-l { display:block; font-size:11px; color:#5A6475; margin-top:2px; white-space:nowrap; }
-  .g-tick.mid { transform:translateX(-50%); text-align:center; }
-  .g-tick.end { transform:translateX(-100%); text-align:right; }
-  .g-track { position:relative; height:48px; background:#EEF1F6; border-radius:9px; }
-  .g-bar { position:absolute; top:5px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12.5px; font-weight:600; padding:0 8px; box-sizing:border-box; text-align:center; }
-  .g-bar b { font-weight:800; margin-right:5px; }
-  .g-dev { background:#0078FF; }
-  .g-qa { background:#00A9A5; }
-  .g-holi { position:absolute; top:-6px; bottom:-6px; width:0; border-left:2px dashed #FF3A5B; }
-  .g-holi .hl { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:8px; font-size:10.5px; color:#FF3A5B; font-weight:700; white-space:nowrap; }
-  .sched-note { font-size:12px; color:#5A6475; margin-top:40px; line-height:1.6; }
+    /* 배포 일정 캘린더 */
+  .sched { margin-top:28px; padding-top:22px; border-top:1px solid #DCE0E8; }
+  .sched-h { font-size:16px; font-weight:800; color:#141A24; margin-bottom:6px; }
+  .sched-sub { font-size:12px; color:#5A6475; margin-bottom:18px; }
+  .cal { display:flex; gap:5px; flex-wrap:wrap; }
+  .cc { width:52px; border-radius:8px; text-align:center; background:#F2F3F8; overflow:hidden; }
+  .cc .cc-bar { height:5px; background:#CBD1DC; }
+  .cc .cc-d { font-size:12px; font-weight:800; color:#141A24; margin-top:7px; }
+  .cc .cc-w { font-size:10px; color:#8A93A3; margin:2px 0 5px; }
+  .cc .cc-t { font-size:10px; font-weight:700; padding-bottom:7px; color:#99A1B1; }
+  .cc.dev { background:#EBF5FF; } .cc.dev .cc-bar{ background:#0078FF; } .cc.dev .cc-t{ color:#0069FF; }
+  .cc.qa { background:#E1F7F5; } .cc.qa .cc-bar{ background:#00A9A5; } .cc.qa .cc-t{ color:#00867F; }
+  .cc.dep { background:#E6FEF0; } .cc.dep .cc-bar{ background:#00BB83; } .cc.dep .cc-t{ color:#009E6C; }
+  .cal-legend { display:flex; gap:18px; margin-top:18px; font-size:12px; color:#3A4250; flex-wrap:wrap; }
+  .cal-legend .lg { display:flex; align-items:center; gap:6px; }
+  .cal-legend .sw { width:12px; height:12px; border-radius:3px; }
 </style>
 </head>
 <body>
@@ -222,19 +220,30 @@
 </div>
 <div class="sched">
   <div class="sched-h">배포 일정</div>
-  <div class="gantt">
-    <div class="g-axis">
-      <div class="g-tick" style="left:0%;"><span class="g-d">7/8</span><span class="g-l">웹 서버 착수</span></div>
-      <div class="g-tick mid" style="left:50%;"><span class="g-d">7/15</span><span class="g-l">개발 완료, QA 시작</span></div>
-      <div class="g-tick end" style="left:100%;"><span class="g-d">7/22</span><span class="g-l">배포</span></div>
-    </div>
-    <div class="g-track">
-      <div class="g-bar g-dev" style="left:0%; width:50%;"><span><b>개발</b> 웹 서버 병행, 5 영업일</span></div>
-      <div class="g-bar g-qa" style="left:50%; width:50%;"><span><b>QA</b> 4 영업일</span></div>
-      <div class="g-holi" style="left:64.3%;"><span class="hl">제헌절 7/17 제외</span></div>
-    </div>
+  <div class="sched-sub">담당자들이 진행 중인 다른 작업을 마치고 7/8에 착수</div>
+  <div class="cal">
+    <div class="cc dev"><div class="cc-bar"></div><div class="cc-d">7/8</div><div class="cc-w">수</div><div class="cc-t">개발</div></div>
+    <div class="cc dev"><div class="cc-bar"></div><div class="cc-d">7/9</div><div class="cc-w">목</div><div class="cc-t">개발</div></div>
+    <div class="cc dev"><div class="cc-bar"></div><div class="cc-d">7/10</div><div class="cc-w">금</div><div class="cc-t">개발</div></div>
+    <div class="cc "><div class="cc-bar"></div><div class="cc-d">7/11</div><div class="cc-w">토</div><div class="cc-t">주말</div></div>
+    <div class="cc "><div class="cc-bar"></div><div class="cc-d">7/12</div><div class="cc-w">일</div><div class="cc-t">주말</div></div>
+    <div class="cc dev"><div class="cc-bar"></div><div class="cc-d">7/13</div><div class="cc-w">월</div><div class="cc-t">개발</div></div>
+    <div class="cc dev"><div class="cc-bar"></div><div class="cc-d">7/14</div><div class="cc-w">화</div><div class="cc-t">개발</div></div>
+    <div class="cc qa"><div class="cc-bar"></div><div class="cc-d">7/15</div><div class="cc-w">수</div><div class="cc-t">QA</div></div>
+    <div class="cc qa"><div class="cc-bar"></div><div class="cc-d">7/16</div><div class="cc-w">목</div><div class="cc-t">QA</div></div>
+    <div class="cc "><div class="cc-bar"></div><div class="cc-d">7/17</div><div class="cc-w">금</div><div class="cc-t">제헌절</div></div>
+    <div class="cc "><div class="cc-bar"></div><div class="cc-d">7/18</div><div class="cc-w">토</div><div class="cc-t">주말</div></div>
+    <div class="cc "><div class="cc-bar"></div><div class="cc-d">7/19</div><div class="cc-w">일</div><div class="cc-t">주말</div></div>
+    <div class="cc qa"><div class="cc-bar"></div><div class="cc-d">7/20</div><div class="cc-w">월</div><div class="cc-t">QA</div></div>
+    <div class="cc qa"><div class="cc-bar"></div><div class="cc-d">7/21</div><div class="cc-w">화</div><div class="cc-t">QA</div></div>
+    <div class="cc dep"><div class="cc-bar"></div><div class="cc-d">7/22</div><div class="cc-w">수</div><div class="cc-t">배포</div></div>
   </div>
-  <div class="sched-note">7/8 착수 이유는 담당자들이 현재 다른 작업 중이라, 마무리한 뒤 시작할 수 있어서</div>
+  <div class="cal-legend">
+    <div class="lg"><span class="sw" style="background:#0078FF"></span>개발 5일</div>
+    <div class="lg"><span class="sw" style="background:#00A9A5"></span>QA 4일</div>
+    <div class="lg"><span class="sw" style="background:#00BB83"></span>배포</div>
+    <div class="lg"><span class="sw" style="background:#CBD1DC"></span>주말, 제헌절 제외</div>
+  </div>
 </div>
 </body>
 </html>
