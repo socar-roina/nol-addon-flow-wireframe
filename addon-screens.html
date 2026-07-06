@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>놀 부가서비스 추가구매 · 신규 화면 (SOCAR-FRAME 2.0)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+:root{
+  --white:#FFFFFF; --gray50:#F9F9FB; --gray100:#F2F3F8; --gray200:#E5E8EF; --gray300:#CBD1DC;
+  --gray400:#B4BBCB; --gray500:#99A1B1; --gray600:#697383; --gray700:#4A5667; --gray800:#354153;
+  --gray900:#262F3C; --gray1000:#141A24;
+  --blue50:#EBF5FF; --blue100:#D6EBFF; --blue500:#0078FF; --blue600:#0069FF; --blue700:#0052E0;
+  --text-strong:#141A24; --text-primary:#354153; --text-secondary:#697383; --text-tertiary:#99A1B1; --text-disabled:#B4BBCB;
+  --pos-weak:#E6FEF0; --pos-strong:#00BB83; --caution-weak:#FFF8E6; --caution:#FF8800;
+}
+*{box-sizing:border-box; font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif;}
+html,body{margin:0;padding:0;}
+.stage{background:#0E1420; min-height:100vh; padding:40px 0 64px; width:100%;}
+.stage-head{max-width:1200px; margin:0 auto 8px; padding:0 28px; color:#fff;}
+.stage-head h1{font-size:22px; font-weight:800; letter-spacing:-.3px; margin:0 0 8px;}
+.stage-head p{font-size:13px; line-height:1.6; color:#AEB6C4; margin:0; max-width:760px;}
+.legend{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+.lg{font-size:11px; font-weight:700; padding:4px 9px; border-radius:6px;}
+.lg-new{background:#3A1E22; color:#FF8B9C; border:1px solid #5A2A31;}
+.lg-reuse{background:#12283F; color:#6BB5FF; border:1px solid #1E3E63;}
+.row{display:flex; gap:22px; overflow-x:auto; padding:24px 28px 8px; -webkit-overflow-scrolling:touch;}
+.col{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:12px;}
+.cap{display:flex; flex-direction:column; align-items:center; gap:6px; min-height:52px;}
+.cap .badge{font-size:11px; font-weight:800; padding:4px 10px; border-radius:7px;}
+.cap .badge.new{background:#FFEAEE; color:#D0324A;}
+.cap .badge.reuse{background:#E7F1FF; color:#0058CC;}
+.cap .nm{color:#fff; font-size:13px; font-weight:700;}
+.cap .sub{color:#8B95A6; font-size:11px; text-align:center; max-width:300px; line-height:1.4;}
+
+/* phone */
+.phone{width:340px; height:720px; overflow:hidden; display:flex; flex-direction:column;
+  border-radius:26px; background:var(--white); position:relative; box-shadow:0 12px 40px rgba(0,0,0,.4);
+  border:1px solid #232B39;}
+.sbar{height:40px; display:flex; align-items:center; justify-content:space-between; padding:0 20px 0 22px; flex-shrink:0;}
+.sbar .t{font-size:13px; font-weight:700; color:var(--text-strong);}
+.sbar .r{display:flex; align-items:center; gap:5px; color:var(--text-strong);}
+.sc{flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch;}
+.sc::-webkit-scrollbar{width:0;}
+
+/* top app bar */
+.nav{height:50px; display:flex; align-items:center; padding:6px 8px; flex-shrink:0; background:#fff;}
+.nav .sp{flex:1;}
+.nb{width:36px; height:36px; border:none; background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+.nav .title{flex:1; font-size:17px; font-weight:700; color:var(--text-strong); padding-left:6px;}
+
+/* generic */
+.pad{padding:0 16px;}
+.tag{display:inline-flex; align-items:center; font-size:12px; font-weight:600; padding:3px 8px; border-radius:6px;}
+.tag.pos{background:var(--pos-weak); color:var(--pos-strong);}
+.h-title{font-size:23px; font-weight:800; color:var(--text-strong); letter-spacing:-.4px; line-height:1.28;}
+.tabs{display:flex; gap:22px; padding:0 16px; border-bottom:1px solid var(--gray200); margin-top:14px;}
+.tab{padding:12px 0; font-size:16px; font-weight:700; color:var(--text-tertiary); position:relative;}
+.tab.on{color:var(--text-strong);}
+.tab.on:after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--text-strong); border-radius:2px;}
+
+/* callout (기존 컴포넌트 재사용) */
+.callout{display:flex; align-items:flex-start; gap:12px; border-radius:14px; padding:15px 14px;}
+.callout .ico{width:24px; height:24px; flex-shrink:0; margin-top:1px;}
+.callout .body{flex:1;}
+.callout .ttl{font-size:15px; font-weight:800; color:var(--text-strong); line-height:1.4;}
+.callout .desc{font-size:13px; color:var(--text-secondary); line-height:1.5; margin-top:3px;}
+.callout .chev{width:22px; height:22px; flex-shrink:0; align-self:center; color:var(--gray400);}
+.callout.caution{background:var(--caution-weak);}
+.callout.brand{background:var(--blue50);}
+
+/* addon banner (제주 2버튼) */
+.abn{border-radius:14px; padding:15px 14px 14px; background:var(--blue50);}
+.abn-head{display:flex; align-items:flex-start; gap:12px;}
+.abn .ico{width:24px; height:24px; flex-shrink:0; margin-top:1px;}
+.abn .ttl{font-size:15px; font-weight:800; color:var(--text-strong); line-height:1.4;}
+.abn .desc{font-size:13px; color:var(--text-secondary); line-height:1.5; margin-top:3px;}
+.abn-btns{display:flex; gap:8px; margin-top:12px;}
+.abtn{flex:1; border:none; cursor:pointer; background:var(--blue100); color:var(--blue700);
+  font-size:14px; font-weight:700; padding:11px 0; border-radius:10px; display:flex; align-items:center; justify-content:center; gap:4px;}
+
+/* sections */
+.sec-t{font-size:18px; font-weight:800; color:var(--text-strong); padding:20px 16px 10px; display:flex; align-items:center; justify-content:space-between;}
+.sec-t .more{font-size:14px; font-weight:600; color:var(--text-tertiary);}
+.divider{height:8px; background:var(--gray100);}
+.kv{display:flex; align-items:flex-start; justify-content:space-between; padding:9px 0;}
+.kv .k{font-size:15px; color:var(--text-secondary);}
+.kv .v{font-size:15px; color:var(--text-primary); font-weight:600; text-align:right;}
+
+/* payment */
+.card{background:#fff; border:1px solid var(--gray200); border-radius:14px; margin:0 16px; padding:16px;}
+.prod{display:flex; align-items:center; gap:12px;}
+.prod .thumb{width:52px; height:52px; border-radius:12px; background:var(--gray100); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.prod .nm{font-size:16px; font-weight:700; color:var(--text-strong);}
+.prod .meta{font-size:13px; color:var(--text-secondary); margin-top:2px;}
+.note{display:flex; gap:8px; background:var(--caution-weak); border-radius:12px; padding:12px 13px; margin:10px 16px 0;}
+.note .ico{width:20px; height:20px; flex-shrink:0; margin-top:1px;}
+.note .tx{font-size:13px; color:#8A5A00; line-height:1.5;}
+.total{display:flex; align-items:baseline; justify-content:space-between; padding:14px 0 2px;}
+.total .k{font-size:16px; font-weight:800; color:var(--text-strong);}
+.total .v{font-size:22px; font-weight:800; color:var(--text-strong); letter-spacing:-.4px;}
+.pm{display:flex; align-items:center; justify-content:space-between;}
+.pm .l{display:flex; align-items:center; gap:10px;}
+.pm .badge-pay{width:30px; height:30px; border-radius:8px; background:var(--blue500); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:800;}
+.pm .nm{font-size:15px; font-weight:700; color:var(--text-strong);}
+.pm .sub{font-size:12px; color:var(--text-tertiary); margin-top:1px;}
+.agree{display:flex; align-items:center; gap:10px; padding:14px 16px;}
+.chk{width:22px; height:22px; border-radius:50%; background:var(--blue500); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.agree .tx{font-size:14px; color:var(--text-primary); font-weight:500; flex:1;}
+.agree .tx b{color:var(--text-strong); font-weight:700;}
+.agree .arw{color:var(--gray400);}
+
+/* bottom cta */
+.bottom{flex-shrink:0; padding:10px 16px 18px; background:#fff; border-top:1px solid var(--gray100);}
+.cta{width:100%; border:none; cursor:pointer; background:var(--blue500); color:#fff; font-size:17px; font-weight:700; padding:16px 0; border-radius:14px;}
+.cta.block{opacity:.4;}
+.bottom.two{display:flex; gap:8px;}
+.cta.sec{background:var(--blue100); color:var(--blue700); flex:1;}
+.cta.pri{background:var(--blue500); color:#fff; flex:2;}
+
+/* completion */
+.done{display:flex; flex-direction:column; align-items:center; text-align:center; padding:56px 24px 0;}
+.done .ic{width:64px; height:64px; margin-bottom:20px;}
+.done .h{font-size:24px; font-weight:800; color:var(--text-strong); letter-spacing:-.4px;}
+.done .s{font-size:15px; color:var(--text-secondary); margin-top:8px; line-height:1.5;}
+.rcpt{background:var(--gray50); border-radius:14px; margin:28px 16px 0; padding:16px;}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="stage-head">
+    <h1>놀·네이버 부가서비스 추가구매 — 신규 화면</h1>
+    <p>SOCAR-FRAME 2.0 토큰·Pretendard 적용. 배너는 예약 상세에 이미 개발된 콜아웃 컴포넌트를 재사용(카피만 부가서비스용). 결제·완료는 결제/완료가 네이티브라 웹뷰용 외부 웹으로 신규 구현(기존 결제·완료 UI를 그대로 본뜸). 새 선택·장바구니 화면 없음, 배너 버튼은 알림톡 딥링크와 같은 상품별 목적지로 직행.</p>
+    <div class="legend">
+      <span class="lg lg-reuse">■ 재사용 = 기존 컴포넌트/화면 그대로, 개발 공수 최소</span>
+      <span class="lg lg-new">■ 신규 = 외부 웹 신규 구현(UI만 기존 본뜸)</span>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- ===================== A. 배너 (내륙, 카시트 1개) ===================== -->
+    <div class="col">
+      <div class="cap">
+        <span class="badge reuse">배너 · 재사용 컴포넌트</span>
+        <span class="nm">이용내역 상세 — 내륙(카시트만)</span>
+        <span class="sub">콜아웃 1개, 탭하면 카시트 옵션 웹뷰로 직행</span>
+      </div>
+      <div class="phone">
+        <div class="sbar"><span class="t">10:54</span><span class="r">
+          <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg>
+          <span style="font-size:12px;font-weight:700;">5G</span>
+          <svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg>
+        </span></div>
+        <div class="nav"><span class="sp"></span>
+          <button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M19.0928 3.4926C19.4834 3.10208 20.1165 3.10208 20.5071 3.4926C20.8976 3.88312 20.8976 4.51629 20.5071 4.90681L13.4141 11.9998L20.5071 19.0928C20.8976 19.4834 20.8976 20.1165 20.5071 20.5071C20.1166 20.8976 19.4834 20.8976 19.0929 20.5071L11.9998 13.414L4.90706 20.5068C4.51653 20.8973 3.88337 20.8973 3.49284 20.5068C3.10232 20.1163 3.10232 19.4831 3.49284 19.0926L10.5856 11.9998L3.49287 4.90706C3.10235 4.51653 3.10235 3.88337 3.49287 3.49284C3.88339 3.10232 4.51656 3.10232 4.90708 3.49284L11.9998 10.5856L19.0928 3.4926Z"/></svg></button>
+        </div>
+        <div class="sc">
+          <div class="pad" style="padding-top:6px;">
+            <span class="tag pos">예약완료</span>
+            <div class="h-title" style="margin-top:10px;">[블랙라벨] GV70</div>
+          </div>
+          <div class="tabs"><span class="tab on">대여 정보</span><span class="tab">결제 내역</span><span class="tab">기타 정보</span></div>
+
+          <div class="pad" style="padding-top:16px;">
+            <!-- 기존 항공편명 콜아웃 (재사용, 맥락) -->
+            <div class="callout caution">
+              <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#FF8800;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM12 6.2C12.55 6.2 13 6.65 13 7.2V12.8C13 13.35 12.55 13.8 12 13.8C11.45 13.8 11 13.35 11 12.8V7.2C11 6.65 11.45 6.2 12 6.2ZM12 15.2C12.66 15.2 13.2 15.74 13.2 16.4C13.2 17.06 12.66 17.6 12 17.6C11.34 17.6 10.8 17.06 10.8 16.4C10.8 15.74 11.34 15.2 12 15.2Z"/></svg></div>
+              <div class="body"><div class="ttl">항공편명은 반납 전까지 등록해주세요.</div><div class="desc">항공편 지연·결항 시 쏘카 요금을 환불해드립니다.</div></div>
+              <div class="chev"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            </div>
+
+            <!-- ★ 신규 부가서비스 배너 (같은 콜아웃 컴포넌트, 브랜드 틴트) -->
+            <div class="callout brand" style="margin-top:10px;">
+              <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H13V4Z"/></svg></div>
+              <div class="body"><div class="ttl">유아용 카시트를 추가할 수 있어요</div><div class="desc">예약하신 차량에 맞는 카시트를 골라 결제하세요.</div></div>
+              <div class="chev"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            </div>
+          </div>
+
+          <div class="sec-t">차량 정보<span class="more">자세히</span></div>
+          <div class="pad">
+            <div style="font-size:16px;font-weight:700;color:var(--text-strong);">[블랙라벨] GV70 <span style="color:var(--text-secondary);font-weight:500;font-size:14px;">0~330원/km</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+              <span style="font-size:13px;color:var(--text-primary);background:var(--gray100);border-radius:8px;padding:8px 11px;">휘발유</span>
+              <span style="font-size:13px;color:var(--text-primary);background:var(--gray100);border-radius:8px;padding:8px 11px;">지능형 운전보조장치</span>
+              <span style="font-size:13px;color:var(--text-primary);background:var(--gray100);border-radius:8px;padding:8px 11px;">후방 카메라</span>
+            </div>
+          </div>
+          <div style="height:24px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== B. 배너 (제주, 카시트+유모차) ===================== -->
+    <div class="col">
+      <div class="cap">
+        <span class="badge reuse">배너 · 재사용 컴포넌트</span>
+        <span class="nm">이용내역 상세 — 제주(2종)</span>
+        <span class="sub">배너 하나에 버튼 2개, 각 버튼이 해당 상품으로 직행</span>
+      </div>
+      <div class="phone">
+        <div class="sbar"><span class="t">10:54</span><span class="r">
+          <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg>
+          <span style="font-size:12px;font-weight:700;">5G</span>
+          <svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg>
+        </span></div>
+        <div class="nav"><span class="sp"></span>
+          <button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M19.0928 3.4926C19.4834 3.10208 20.1165 3.10208 20.5071 3.4926C20.8976 3.88312 20.8976 4.51629 20.5071 4.90681L13.4141 11.9998L20.5071 19.0928C20.8976 19.4834 20.8976 20.1165 20.5071 20.5071C20.1166 20.8976 19.4834 20.8976 19.0929 20.5071L11.9998 13.414L4.90706 20.5068C4.51653 20.8973 3.88337 20.8973 3.49284 20.5068C3.10232 20.1163 3.10232 19.4831 3.49284 19.0926L10.5856 11.9998L3.49287 4.90706C3.10235 4.51653 3.10235 3.88337 3.49287 3.49284C3.88339 3.10232 4.51656 3.10232 4.90708 3.49284L11.9998 10.5856L19.0928 3.4926Z"/></svg></button>
+        </div>
+        <div class="sc">
+          <div class="pad" style="padding-top:6px;">
+            <span class="tag pos">예약완료</span>
+            <div class="h-title" style="margin-top:10px;">[블랙라벨] GV70</div>
+          </div>
+          <div class="tabs"><span class="tab on">대여 정보</span><span class="tab">결제 내역</span><span class="tab">기타 정보</span></div>
+
+          <div class="pad" style="padding-top:16px;">
+            <div class="callout caution">
+              <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#FF8800;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM12 6.2C12.55 6.2 13 6.65 13 7.2V12.8C13 13.35 12.55 13.8 12 13.8C11.45 13.8 11 13.35 11 12.8V7.2C11 6.65 11.45 6.2 12 6.2ZM12 15.2C12.66 15.2 13.2 15.74 13.2 16.4C13.2 17.06 12.66 17.6 12 17.6C11.34 17.6 10.8 17.06 10.8 16.4C10.8 15.74 11.34 15.2 12 15.2Z"/></svg></div>
+              <div class="body"><div class="ttl">항공편명은 반납 전까지 등록해주세요.</div><div class="desc">항공편 지연·결항 시 쏘카 요금을 환불해드립니다.</div></div>
+              <div class="chev"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            </div>
+
+            <!-- ★ 신규 부가서비스 배너 (제주 = 2버튼) -->
+            <div class="abn" style="margin-top:10px;">
+              <div class="abn-head">
+                <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H13V4Z"/></svg></div>
+                <div class="body"><div class="ttl">카시트·유모차를 추가할 수 있어요</div><div class="desc">예약하신 차량에 맞는 옵션을 골라 결제하세요.</div></div>
+              </div>
+              <div class="abn-btns">
+                <button class="abtn">유아용 카시트</button>
+                <button class="abtn">유모차</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-t">차량 정보<span class="more">자세히</span></div>
+          <div class="pad">
+            <div style="font-size:16px;font-weight:700;color:var(--text-strong);">[블랙라벨] GV70 <span style="color:var(--text-secondary);font-weight:500;font-size:14px;">0~330원/km</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+              <span style="font-size:13px;color:var(--text-primary);background:var(--gray100);border-radius:8px;padding:8px 11px;">휘발유</span>
+              <span style="font-size:13px;color:var(--text-primary);background:var(--gray100);border-radius:8px;padding:8px 11px;">후방 카메라</span>
+            </div>
+          </div>
+          <div style="height:24px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== C. 추가 요금 확인 (결제, 신규) ===================== -->
+    <div class="col">
+      <div class="cap">
+        <span class="badge new">결제 · 신규(외부 웹)</span>
+        <span class="nm">추가 요금 확인</span>
+        <span class="sub">기존 결제 화면 UI를 본떠 외부 웹으로 신규 구현</span>
+      </div>
+      <div class="phone">
+        <div class="sbar"><span class="t">10:54</span><span class="r">
+          <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg>
+          <span style="font-size:12px;font-weight:700;">5G</span>
+          <svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg>
+        </span></div>
+        <div class="nav">
+          <button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M10.6457 21.2097C11.0362 21.6002 11.6694 21.6002 12.0599 21.2097C12.4505 20.8192 12.4505 20.186 12.0599 19.7955L5.26419 12.9998L21.45 12.9998C22.0022 12.9998 22.45 12.552 22.45 11.9998C22.45 11.4475 22.0022 10.9998 21.45 10.9998L5.26419 10.9998L12.0599 4.20401C12.4505 3.81348 12.4505 3.18032 12.0599 2.7898C11.6694 2.39927 11.0363 2.39927 10.6457 2.7898L2.14287 11.2927C1.75234 11.6832 1.75234 12.3163 2.14287 12.7069L10.6457 21.2097Z"/></svg></button>
+          <span class="title">추가 요금 확인</span>
+        </div>
+        <div class="sc" style="background:var(--gray100);">
+          <div style="height:12px;"></div>
+          <!-- 상품 -->
+          <div class="card">
+            <div class="prod">
+              <div class="thumb"><svg width="26" height="26" viewBox="0 0 24 24"><path style="fill:#697383;" d="M6 3.5C6 2.67 6.67 2 7.5 2h9c.83 0 1.5.67 1.5 1.5V10c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1V3.5ZM5 12.5C5 11.67 5.67 11 6.5 11h11c.83 0 1.5.67 1.5 1.5 0 2.9-1.9 5.36-4.5 6.2V21c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-1.3C5.9 17.86 5 15.4 5 12.5Z"/></svg></div>
+              <div><div class="nm">유아용 카시트 1개</div><div class="meta">설치 위치 · 운전석 뒤</div></div>
+            </div>
+            <div style="height:1px;background:var(--gray200);margin:14px 0;"></div>
+            <div class="kv"><span class="k">대여 기간</span><span class="v">차량 대여 기간과 동일<br><span style="font-weight:500;color:var(--text-tertiary);font-size:13px;">3/16(일) ~ 3/18(화) · 2박 3일</span></span></div>
+          </div>
+
+          <!-- 금액 -->
+          <div class="card" style="margin-top:12px;">
+            <div class="kv"><span class="k">유아용 카시트</span><span class="v">30,000원</span></div>
+            <div class="kv"><span class="k" style="font-size:13px;color:var(--text-tertiary);padding-left:2px;">10,000원 · 3일</span><span class="v" style="font-weight:500;color:var(--text-tertiary);font-size:13px;"></span></div>
+            <div style="height:1px;background:var(--gray200);margin:6px 0 2px;"></div>
+            <div class="total"><span class="k">추가 결제 금액</span><span class="v">30,000원</span></div>
+          </div>
+          <div class="note">
+            <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#FF8800;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM12 6.2C12.55 6.2 13 6.65 13 7.2V12.8C13 13.35 12.55 13.8 12 13.8C11.45 13.8 11 13.35 11 12.8V7.2C11 6.65 11.45 6.2 12 6.2ZM12 15.2C12.66 15.2 13.2 15.74 13.2 16.4C13.2 17.06 12.66 17.6 12 17.6C11.34 17.6 10.8 17.06 10.8 16.4C10.8 15.74 11.34 15.2 12 15.2Z"/></svg></div>
+            <div class="tx">하이패스 등 정산되지 않은 요금이 있으면 이번 결제에 함께 청구될 수 있어요.</div>
+          </div>
+
+          <!-- 결제수단 -->
+          <div class="sec-t" style="padding-bottom:8px;">결제수단</div>
+          <div class="card" style="margin-top:0;">
+            <div class="pm">
+              <div class="l"><div class="badge-pay">pay</div><div><div class="nm">쏘카페이</div><div class="sub">쏘카에 등록된 결제수단</div></div></div>
+            </div>
+            <div style="height:1px;background:var(--gray200);margin:12px 0;"></div>
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.5;">추가 구매는 쏘카에 등록하신 결제수단으로 결제되며 변경할 수 없어요.</div>
+          </div>
+
+          <!-- 약관 -->
+          <div style="background:#fff;margin-top:12px;border-top:1px solid var(--gray200);border-bottom:1px solid var(--gray200);">
+            <div class="agree">
+              <div class="chk"><svg width="14" height="14" viewBox="0 0 24 24"><path style="fill:#FFFFFF;" d="M22.3191 4.84576C22.8268 5.35344 22.8268 6.17655 22.3191 6.68424L10.3591 18.6442C10.1153 18.888 9.78467 19.025 9.43989 19.025C9.09511 19.025 8.76445 18.888 8.52065 18.6442L2.08065 12.2042C1.57297 11.6966 1.57297 10.8734 2.08065 10.3658C2.58833 9.85808 3.41145 9.85808 3.91913 10.3658L9.43989 15.8865L20.4806 4.84576C20.9883 4.33808 21.8114 4.33808 22.3191 4.84576Z"/></svg></div>
+              <div class="tx"><b>[필수]</b> 부가서비스 이용약관 동의</div>
+              <div class="arw"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            </div>
+          </div>
+          <div style="height:16px;"></div>
+        </div>
+        <div class="bottom"><button class="cta">30,000원 결제하기</button></div>
+      </div>
+    </div>
+
+    <!-- ===================== D. 추가 구매 완료 (신규) ===================== -->
+    <div class="col">
+      <div class="cap">
+        <span class="badge new">완료 · 신규(외부 웹)</span>
+        <span class="nm">추가 구매 완료</span>
+        <span class="sub">기존 결제 완료 UI 본뜸, 버튼 2개·문구만 변경</span>
+      </div>
+      <div class="phone">
+        <div class="sbar"><span class="t">10:54</span><span class="r">
+          <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg>
+          <span style="font-size:12px;font-weight:700;">5G</span>
+          <svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg>
+        </span></div>
+        <div class="nav"><span class="sp"></span></div>
+        <div class="sc">
+          <div class="done">
+            <div class="ic"><svg width="64" height="64" viewBox="0 0 24 24"><path style="fill:#00BB83;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM17.13 9.68C17.13 9.68 13.52 13.54 11.71 15.65C11.53 15.86 11.26 15.99 10.98 16H10.96C10.69 16 10.42 15.89 10.23 15.69L7.38 12.69C7 12.29 7.02 11.66 7.42 11.28C7.82 10.9 8.45 10.91 8.83 11.32L10.92 13.52C12.84 11.35 15.64 8.36 15.67 8.32C16.05 7.92 16.68 7.9 17.08 8.27C17.48 8.65 17.5 9.28 17.13 9.68Z"/></svg></div>
+            <div class="h">추가 구매 완료</div>
+            <div class="s">예약 내역에서 확인하세요.</div>
+          </div>
+          <div class="rcpt">
+            <div class="kv"><span class="k">유아용 카시트</span><span class="v">1개 · 운전석 뒤</span></div>
+            <div style="height:1px;background:var(--gray200);margin:4px 0;"></div>
+            <div class="total" style="padding:12px 0 2px;"><span class="k" style="font-size:15px;">결제 금액</span><span class="v" style="font-size:19px;">30,000원</span></div>
+          </div>
+        </div>
+        <div class="bottom two">
+          <button class="cta sec">홈으로 가기</button>
+          <button class="cta pri">내 예약 보기</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="stage-head" style="margin-top:18px;">
+    <p style="color:#8B95A6;font-size:12px;">적용한 기본값 — 샘플: 제주 [블랙라벨] GV70, 카시트 1일 10,000원·3일 기준 30,000원. 배너 아이콘은 카시트 전용 아이콘이 SOCAR-FRAME 2.0에 없어 '추가' 의미의 icon-plus-fill 사용(임의 아이콘 생성 대신 디자인시스템 아이콘 채택). 결제수단·약관·완료 버튼 문구는 정책서 기준, 조정 가능.</p>
+  </div>
+</div>
+</body>
+</html>
