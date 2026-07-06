@@ -35,9 +35,10 @@ html,body{margin:0;padding:0;}
 .cap .sub{color:#8B95A6; font-size:11px; text-align:center; max-width:300px; line-height:1.4;}
 
 /* phone */
-.phone{width:340px; height:720px; overflow:hidden; display:flex; flex-direction:column;
-  border-radius:26px; background:var(--white); position:relative; box-shadow:0 12px 40px rgba(0,0,0,.4);
+.phone{width:375px; height:812px; overflow:hidden; display:flex; flex-direction:column;
+  border-radius:34px; background:var(--white); position:relative; box-shadow:0 12px 40px rgba(0,0,0,.4);
   border:1px solid #232B39;}
+.nb svg{width:23px; height:23px;}
 .sbar{height:40px; display:flex; align-items:center; justify-content:space-between; padding:0 20px 0 22px; flex-shrink:0;}
 .sbar .t{font-size:13px; font-weight:700; color:var(--text-strong);}
 .sbar .r{display:flex; align-items:center; gap:5px; color:var(--text-strong);}
@@ -61,10 +62,10 @@ html,body{margin:0;padding:0;}
 .tab.on:after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--text-strong); border-radius:2px;}
 
 /* callout (기존 컴포넌트 재사용) */
-.callout{display:flex; align-items:flex-start; gap:12px; border-radius:14px; padding:15px 14px;}
-.callout .ico{width:24px; height:24px; flex-shrink:0; margin-top:1px;}
+.callout{display:flex; align-items:flex-start; gap:10px; border-radius:14px; padding:14px 14px;}
+.callout .ico{width:22px; height:22px; flex-shrink:0; margin-top:1px;}
 .callout .body{flex:1;}
-.callout .ttl{font-size:15px; font-weight:800; color:var(--text-strong); line-height:1.4;}
+.callout .ttl{font-size:14px; font-weight:700; color:var(--text-strong); line-height:1.42;}
 .callout .desc{font-size:13px; color:var(--text-secondary); line-height:1.5; margin-top:3px;}
 .callout .chev{width:22px; height:22px; flex-shrink:0; align-self:center; color:var(--gray400);}
 .callout.caution{background:var(--caution-weak);}
@@ -73,8 +74,8 @@ html,body{margin:0;padding:0;}
 /* addon banner (제주 2버튼) */
 .abn{border-radius:14px; padding:15px 14px 14px; background:var(--blue50);}
 .abn-head{display:flex; align-items:flex-start; gap:12px;}
-.abn .ico{width:24px; height:24px; flex-shrink:0; margin-top:1px;}
-.abn .ttl{font-size:15px; font-weight:800; color:var(--text-strong); line-height:1.4;}
+.abn .ico{width:22px; height:22px; flex-shrink:0; margin-top:1px;}
+.abn .ttl{font-size:14px; font-weight:700; color:var(--text-strong); line-height:1.42;}
 .abn .desc{font-size:13px; color:var(--text-secondary); line-height:1.5; margin-top:3px;}
 .abn-btns{display:flex; gap:8px; margin-top:12px;}
 .abtn{flex:1; border:none; cursor:pointer; background:var(--blue100); color:var(--blue700);
