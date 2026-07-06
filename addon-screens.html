@@ -146,29 +146,6 @@ html,body{margin:0;padding:0;}
 .done .h{font-size:24px; font-weight:800; color:var(--text-strong); letter-spacing:-.4px;}
 .done .s{font-size:15px; color:var(--text-secondary); margin-top:8px; line-height:1.5;}
 .rcpt{background:var(--gray50); border-radius:14px; margin:28px 16px 0; padding:16px;}
-
-/* 재사용 플로우 화면 (로그인, 연동, 옵션, 설치) */
-.lg-wrap{flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 24px 60px;}
-.lg-logo{font-size:30px; font-weight:900; color:var(--blue500); letter-spacing:-.6px;}
-.lg-sub{font-size:16px; color:var(--text-secondary); margin-top:12px; line-height:1.5;}
-.lg-btns{display:flex; flex-direction:column; gap:10px; margin-top:36px;}
-.lg-btn{border:none; border-radius:12px; padding:16px 0; font-size:15px; font-weight:700; text-align:center; cursor:pointer;}
-.lg-btn.kk{background:#FEE500; color:#191600;}
-.lg-btn.pn{background:var(--blue500); color:#fff;}
-.lg-btn.gh{background:var(--gray100); color:var(--text-primary);}
-.field{margin:0 16px; border:1.5px solid var(--gray300); border-radius:12px; padding:16px; font-size:16px; color:var(--text-tertiary); background:#fff;}
-.field.filled{border-color:var(--blue500); color:var(--text-strong); font-weight:800; letter-spacing:3px;}
-.opt-card{margin:0 16px; border:1px solid var(--gray200); border-radius:14px; padding:16px;}
-.stepper{display:flex; align-items:center; gap:16px;}
-.stp-btn{width:34px; height:34px; border-radius:9px; border:1px solid var(--gray300); background:#fff; display:flex; align-items:center; justify-content:center; color:var(--text-primary); font-size:20px; font-weight:700; cursor:pointer;}
-.stp-n{font-size:18px; font-weight:800; color:var(--text-strong); min-width:22px; text-align:center;}
-.car{margin:20px 16px 0; background:var(--gray50); border:1px solid var(--gray200); border-radius:18px; padding:18px;}
-.car-row{display:flex; gap:12px;}
-.seat{flex:1; border-radius:12px; border:1.5px solid var(--gray300); background:#fff; padding:20px 0; text-align:center; font-size:14px; font-weight:700; color:var(--text-secondary);}
-.seat.front{background:var(--gray100); color:var(--text-tertiary); border-style:dashed;}
-.seat.on{border-color:var(--blue500); background:var(--blue50); color:var(--blue700);}
-.seat .sm{display:block; font-size:11px; font-weight:600; color:var(--text-tertiary); margin-top:5px;}
-.seat.on .sm{color:var(--blue600);}
 </style>
 </head>
 <body>
@@ -183,8 +160,6 @@ html,body{margin:0;padding:0;}
   </div>
 
   <div class="flow">
-    <span class="fstep">로그인 <em>재사용</em></span><span class="farr"><svg width="13" height="13" viewBox="0 0 24 24"><path style="fill:#5A6577;" d="M8.5 2.9a1 1 0 0 1 1.4 0l8.2 8.4a1 1 0 0 1 0 1.4l-8.2 8.4a1 1 0 1 1-1.4-1.4l7.5-7.7-7.5-7.7a1 1 0 0 1 0-1.4Z"/></svg></span>
-    <span class="fstep">예약코드 연동 <em>놀, 재사용</em></span><span class="farr"><svg width="13" height="13" viewBox="0 0 24 24"><path style="fill:#5A6577;" d="M8.5 2.9a1 1 0 0 1 1.4 0l8.2 8.4a1 1 0 0 1 0 1.4l-8.2 8.4a1 1 0 1 1-1.4-1.4l7.5-7.7-7.5-7.7a1 1 0 0 1 0-1.4Z"/></svg></span>
     <span class="fstep">진입 <em>배너, 알림톡</em></span><span class="farr"><svg width="13" height="13" viewBox="0 0 24 24"><path style="fill:#5A6577;" d="M8.5 2.9a1 1 0 0 1 1.4 0l8.2 8.4a1 1 0 0 1 0 1.4l-8.2 8.4a1 1 0 1 1-1.4-1.4l7.5-7.7-7.5-7.7a1 1 0 0 1 0-1.4Z"/></svg></span>
     <span class="fstep">옵션 선택</span><span class="farr"><svg width="13" height="13" viewBox="0 0 24 24"><path style="fill:#5A6577;" d="M8.5 2.9a1 1 0 0 1 1.4 0l8.2 8.4a1 1 0 0 1 0 1.4l-8.2 8.4a1 1 0 1 1-1.4-1.4l7.5-7.7-7.5-7.7a1 1 0 0 1 0-1.4Z"/></svg></span>
     <span class="fstep">설치 위치 <em>카시트</em></span><span class="farr"><svg width="13" height="13" viewBox="0 0 24 24"><path style="fill:#5A6577;" d="M8.5 2.9a1 1 0 0 1 1.4 0l8.2 8.4a1 1 0 0 1 0 1.4l-8.2 8.4a1 1 0 1 1-1.4-1.4l7.5-7.7-7.5-7.7a1 1 0 0 1 0-1.4Z"/></svg></span>
@@ -193,55 +168,6 @@ html,body{margin:0;padding:0;}
   </div>
 
   <div class="row">
-
-    <!-- ===================== 로그인 (재사용) ===================== -->
-    <div class="col">
-      <div class="cap">
-        <span class="badge reuse">재사용 화면</span>
-        <span class="nm">로그인</span>
-        <span class="sub">기존 쏘카 로그인 화면, 개발 범위 아님</span>
-      </div>
-      <div class="phone">
-        <div class="sbar"><span class="t">10:54</span><span class="r"><svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg><span style="font-size:12px;font-weight:700;">5G</span><svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg></span></div>
-        <div class="nav"><span class="sp"></span><button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M19.0928 3.4926C19.4834 3.10208 20.1165 3.10208 20.5071 3.4926C20.8976 3.88312 20.8976 4.51629 20.5071 4.90681L13.4141 11.9998L20.5071 19.0928C20.8976 19.4834 20.8976 20.1165 20.5071 20.5071C20.1166 20.8976 19.4834 20.8976 19.0929 20.5071L11.9998 13.414L4.90706 20.5068C4.51653 20.8973 3.88337 20.8973 3.49284 20.5068C3.10232 20.1163 3.10232 19.4831 3.49284 19.0926L10.5856 11.9998L3.49287 4.90706C3.10235 4.51653 3.10235 3.88337 3.49287 3.49284C3.88339 3.10232 4.51656 3.10232 4.90708 3.49284L11.9998 10.5856L19.0928 3.4926Z"/></svg></button></div>
-        <div class="sc">
-          <div class="lg-wrap">
-            <div class="lg-logo">쏘카</div>
-            <div class="lg-sub">로그인하고 추가 구매를<br>이어서 진행하세요.</div>
-            <div class="lg-btns">
-              <button class="lg-btn kk">카카오로 계속하기</button>
-              <button class="lg-btn pn">휴대폰 번호로 계속하기</button>
-              <button class="lg-btn gh">다른 방법으로 로그인</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===================== 예약코드 연동 (재사용, 놀) ===================== -->
-    <div class="col">
-      <div class="cap">
-        <span class="badge reuse">재사용 화면</span>
-        <span class="nm">예약코드 연동 (놀)</span>
-        <span class="sub">기존 연동 화면, 진입 전 1회, 개발 범위 아님</span>
-      </div>
-      <div class="phone">
-        <div class="sbar"><span class="t">10:54</span><span class="r"><svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg><span style="font-size:12px;font-weight:700;">5G</span><svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg></span></div>
-        <div class="nav"><button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M10.6457 21.2097C11.0362 21.6002 11.6694 21.6002 12.0599 21.2097C12.4505 20.8192 12.4505 20.186 12.0599 19.7955L5.26419 12.9998L21.45 12.9998C22.0022 12.9998 22.45 12.552 22.45 11.9998C22.45 11.4475 22.0022 10.9998 21.45 10.9998L5.26419 10.9998L12.0599 4.20401C12.4505 3.81348 12.4505 3.18032 12.0599 2.7898C11.6694 2.39927 11.0363 2.39927 10.6457 2.7898L2.14287 11.2927C1.75234 11.6832 1.75234 12.3163 2.14287 12.7069L10.6457 21.2097Z"/></svg></button><span class="title">예약 연동</span></div>
-        <div class="sc">
-          <div class="pad" style="padding-top:16px;">
-            <div class="h-title">놀에서 받은<br>예약코드를 입력해주세요</div>
-            <div style="font-size:14px;color:var(--text-secondary);line-height:1.5;margin-top:12px;">예약코드를 입력하면 놀 예약이 내 쏘카 계정에 연동돼요.</div>
-          </div>
-          <div class="field filled" style="margin-top:20px;">NOL-8F3K2Q</div>
-          <div class="callout caution" style="margin:16px;">
-            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#FF8800;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM12 6.2C12.55 6.2 13 6.65 13 7.2V12.8C13 13.35 12.55 13.8 12 13.8C11.45 13.8 11 13.35 11 12.8V7.2C11 6.65 11.45 6.2 12 6.2ZM12 15.2C12.66 15.2 13.2 15.74 13.2 16.4C13.2 17.06 12.66 17.6 12 17.6C11.34 17.6 10.8 17.06 10.8 16.4C10.8 15.74 11.34 15.2 12 15.2Z"/></svg></div>
-            <div class="body"><div class="ttl">연동 조건</div><div class="desc">운전자 이름과 생년월일이 일치하고, 미납이 없으며, 대여기간이 겹치는 예약이 없어야 해요.</div></div>
-          </div>
-        </div>
-        <div class="bottom"><button class="cta">연동하기</button></div>
-      </div>
-    </div>
 
     <!-- ===================== A. 배너 (내륙, 카시트 1개) ===================== -->
     <div class="col">
@@ -349,66 +275,6 @@ html,body{margin:0;padding:0;}
           </div>
           <div style="height:24px;"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- ===================== 옵션 선택 (재사용) ===================== -->
-    <div class="col">
-      <div class="cap">
-        <span class="badge reuse">재사용 화면</span>
-        <span class="nm">옵션 선택</span>
-        <span class="sub">기존 옵션 선택 화면, 개발 범위 아님</span>
-      </div>
-      <div class="phone">
-        <div class="sbar"><span class="t">10:54</span><span class="r"><svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg><span style="font-size:12px;font-weight:700;">5G</span><svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg></span></div>
-        <div class="nav"><button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M10.6457 21.2097C11.0362 21.6002 11.6694 21.6002 12.0599 21.2097C12.4505 20.8192 12.4505 20.186 12.0599 19.7955L5.26419 12.9998L21.45 12.9998C22.0022 12.9998 22.45 12.552 22.45 11.9998C22.45 11.4475 22.0022 10.9998 21.45 10.9998L5.26419 10.9998L12.0599 4.20401C12.4505 3.81348 12.4505 3.18032 12.0599 2.7898C11.6694 2.39927 11.0363 2.39927 10.6457 2.7898L2.14287 11.2927C1.75234 11.6832 1.75234 12.3163 2.14287 12.7069L10.6457 21.2097Z"/></svg></button><span class="title">상세 옵션 선택</span></div>
-        <div class="sc">
-          <div class="pad" style="padding-top:14px;">
-            <div style="font-size:15px;color:var(--text-secondary);line-height:1.5;">예약하신 차량에 맞는 카시트예요.<br>수량을 선택해주세요.</div>
-          </div>
-          <div class="opt-card" style="margin-top:16px;">
-            <div style="display:flex;gap:12px;">
-              <div class="pthumb"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5Zm2 1v8.2l3.4-3.4 2.6 2.6 3-3L18 13.4V6H6Zm2.4 1.6a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Z"/></svg><span>상품 사진</span></div>
-              <div style="flex:1;"><div class="p-age">0~1세</div><div class="p-name">9~18kg, 원픽스 360 시즌2 i-SIZE</div><div style="font-size:15px;font-weight:800;color:var(--text-strong);margin-top:7px;">하루 10,000원</div></div>
-            </div>
-            <div style="height:1px;background:var(--gray200);margin:14px 0;"></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:15px;font-weight:700;color:var(--text-strong);">수량</span>
-              <div class="stepper"><button class="stp-btn">-</button><span class="stp-n">1</span><button class="stp-btn">+</button></div>
-            </div>
-          </div>
-        </div>
-        <div class="bottom"><div style="display:flex;align-items:baseline;justify-content:center;gap:6px;margin-bottom:10px;"><span style="font-size:13px;color:var(--text-secondary);">1일 1개 총</span><span style="font-size:16px;font-weight:800;color:var(--text-strong);">30,000원</span></div><button class="cta">선택 완료</button></div>
-      </div>
-    </div>
-
-    <!-- ===================== 설치 위치 (재사용) ===================== -->
-    <div class="col">
-      <div class="cap">
-        <span class="badge reuse">재사용 화면</span>
-        <span class="nm">설치 위치 (카시트)</span>
-        <span class="sub">기존 설치 위치 화면, 유모차는 없음, 개발 범위 아님</span>
-      </div>
-      <div class="phone">
-        <div class="sbar"><span class="t">10:54</span><span class="r"><svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1" fill="#141A24"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#141A24"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#141A24"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#141A24"/></svg><span style="font-size:12px;font-weight:700;">5G</span><svg width="24" height="12" viewBox="0 0 24 12"><rect x="1" y="1" width="20" height="10" rx="3" fill="none" stroke="#141A24" stroke-width="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="#141A24"/><rect x="22" y="4" width="1.5" height="4" rx="1" fill="#141A24"/></svg></span></div>
-        <div class="nav"><button class="nb"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#141A24;" d="M10.6457 21.2097C11.0362 21.6002 11.6694 21.6002 12.0599 21.2097C12.4505 20.8192 12.4505 20.186 12.0599 19.7955L5.26419 12.9998L21.45 12.9998C22.0022 12.9998 22.45 12.552 22.45 11.9998C22.45 11.4475 22.0022 10.9998 21.45 10.9998L5.26419 10.9998L12.0599 4.20401C12.4505 3.81348 12.4505 3.18032 12.0599 2.7898C11.6694 2.39927 11.0363 2.39927 10.6457 2.7898L2.14287 11.2927C1.75234 11.6832 1.75234 12.3163 2.14287 12.7069L10.6457 21.2097Z"/></svg></button><span class="title">설치 위치</span></div>
-        <div class="sc">
-          <div class="pad" style="padding-top:16px;">
-            <div class="h-title">카시트를 설치할<br>자리를 선택해주세요</div>
-            <div style="font-size:14px;color:var(--text-secondary);line-height:1.5;margin-top:12px;">안전을 위해 뒷좌석에만 설치할 수 있어요.</div>
-          </div>
-          <div class="car">
-            <div class="car-row" style="margin-bottom:12px;">
-              <div class="seat front">운전석<span class="sm">설치 불가</span></div>
-              <div class="seat front">조수석<span class="sm">설치 불가</span></div>
-            </div>
-            <div class="car-row">
-              <div class="seat on">운전석 뒤<span class="sm">선택됨</span></div>
-              <div class="seat">조수석 뒤<span class="sm">선택 가능</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="bottom"><button class="cta">완료</button></div>
       </div>
     </div>
 
