@@ -131,7 +131,7 @@ html,body{margin:0;padding:0;}
 <div class="stage">
   <div class="stage-head">
     <h1>놀·네이버 부가서비스 추가구매 — 신규 화면</h1>
-    <p>SOCAR-FRAME 2.0 토큰·Pretendard 적용. 배너는 예약 상세에 이미 개발된 콜아웃 컴포넌트를 재사용(카피만 부가서비스용). 결제·완료는 결제/완료가 네이티브라 웹뷰용 외부 웹으로 신규 구현(기존 결제·완료 UI를 그대로 본뜸). 새 선택·장바구니 화면 없음, 배너 버튼은 알림톡 딥링크와 같은 상품별 목적지로 직행.</p>
+    <p>SOCAR-FRAME 2.0 토큰·Pretendard 적용. 부가서비스 배너는 존과 무관하게 항상 한 개, 문구도 범용 고정. 그 배너 안의 진입 버튼만 판매 상품 수에 따라 1개(내륙, 카시트) 또는 2개(제주, 카시트·유모차)로 갈림. 항공편명 등 다른 안내와 함께 떠도 부가서비스 배너는 1개라 최대 2개까지만 쌓임. 배너는 예약 상세의 기존 콜아웃 스타일을 재사용해 신규 디자인 없음. 결제·완료는 결제/완료가 네이티브라 웹뷰용 외부 웹으로 신규 구현(기존 UI 본뜸). 새 선택·장바구니 화면 없음, 진입 버튼은 알림톡 딥링크와 같은 상품별 목적지로 직행.</p>
     <div class="legend">
       <span class="lg lg-reuse">■ 재사용 = 기존 컴포넌트/화면 그대로, 개발 공수 최소</span>
       <span class="lg lg-new">■ 신규 = 외부 웹 신규 구현(UI만 기존 본뜸)</span>
@@ -145,7 +145,7 @@ html,body{margin:0;padding:0;}
       <div class="cap">
         <span class="badge reuse">배너 · 재사용 컴포넌트</span>
         <span class="nm">이용내역 상세 — 내륙(카시트만)</span>
-        <span class="sub">콜아웃 1개, 탭하면 카시트 옵션 웹뷰로 직행</span>
+        <span class="sub">같은 배너 1개, 진입 버튼 1개(카시트만 판매)</span>
       </div>
       <div class="phone">
         <div class="sbar"><span class="t">10:54</span><span class="r">
@@ -171,11 +171,15 @@ html,body{margin:0;padding:0;}
               <div class="chev"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
             </div>
 
-            <!-- ★ 신규 부가서비스 배너 (같은 콜아웃 컴포넌트, 브랜드 틴트) -->
-            <div class="callout brand" style="margin-top:10px;">
-              <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H13V4Z"/></svg></div>
-              <div class="body"><div class="ttl">유아용 카시트를 추가할 수 있어요</div><div class="desc">예약하신 차량에 맞는 카시트를 골라 결제하세요.</div></div>
-              <div class="chev"><svg width="22" height="22" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            <!-- ★ 신규 부가서비스 배너 (배너 1개 + 진입 버튼 1개) -->
+            <div class="abn" style="margin-top:10px;">
+              <div class="abn-head">
+                <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H13V4Z"/></svg></div>
+                <div class="body"><div class="ttl">필요한 옵션을 추가해보세요</div><div class="desc">예약하신 차량에 맞는 옵션을 골라 결제하세요.</div></div>
+              </div>
+              <div class="abn-btns">
+                <button class="abtn">유아용 카시트</button>
+              </div>
             </div>
           </div>
 
@@ -198,7 +202,7 @@ html,body{margin:0;padding:0;}
       <div class="cap">
         <span class="badge reuse">배너 · 재사용 컴포넌트</span>
         <span class="nm">이용내역 상세 — 제주(2종)</span>
-        <span class="sub">배너 하나에 버튼 2개, 각 버튼이 해당 상품으로 직행</span>
+        <span class="sub">같은 배너 1개, 진입 버튼 2개(카시트·유모차 판매)</span>
       </div>
       <div class="phone">
         <div class="sbar"><span class="t">10:54</span><span class="r">
@@ -227,7 +231,7 @@ html,body{margin:0;padding:0;}
             <div class="abn" style="margin-top:10px;">
               <div class="abn-head">
                 <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:#0078FF;" d="M13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H13V4Z"/></svg></div>
-                <div class="body"><div class="ttl">카시트·유모차를 추가할 수 있어요</div><div class="desc">예약하신 차량에 맞는 옵션을 골라 결제하세요.</div></div>
+                <div class="body"><div class="ttl">필요한 옵션을 추가해보세요</div><div class="desc">예약하신 차량에 맞는 옵션을 골라 결제하세요.</div></div>
               </div>
               <div class="abn-btns">
                 <button class="abtn">유아용 카시트</button>
