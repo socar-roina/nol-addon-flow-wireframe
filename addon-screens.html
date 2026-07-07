@@ -333,33 +333,40 @@ html,body{margin:0;padding:0;}
             <div class="kv"><span class="k">이용 시간</span><span class="v">총 2박 3일 이용<br><span style="font-weight:500;color:var(--text-tertiary);font-size:13px;">3/16(일) 10:00 ~ 3/18(화) 18:00</span></span></div>
           </div>
 
-          <!-- 금액 -->
-          <div class="card" style="margin-top:12px;">
+          <!-- 결제 상세 -->
+          <div class="sec-t" style="padding-bottom:8px;">결제 상세</div>
+          <div class="card" style="margin-top:0;">
             <div class="kv"><span class="k">맞춤 옵션 <span style="color:var(--text-tertiary);font-weight:500;">카시트 1개</span></span><span class="v">30,000원</span></div>
-            <div class="kv"><span class="k" style="font-size:13px;color:var(--text-tertiary);padding-left:2px;">10,000원, 3일</span><span class="v" style="font-weight:500;color:var(--text-tertiary);font-size:13px;"></span></div>
-            <div style="height:1px;background:var(--gray200);margin:6px 0 2px;"></div>
-            <div class="total"><span class="k">추가 결제 금액</span><span class="v">30,000원</span></div>
-          </div>
-          <div class="note">
-            <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#FF8800;" d="M12 1.5C6.21 1.5 1.5 6.21 1.5 12C1.5 17.79 6.21 22.5 12 22.5C17.79 22.5 22.5 17.79 22.5 12C22.5 6.21 17.79 1.5 12 1.5ZM12 6.2C12.55 6.2 13 6.65 13 7.2V12.8C13 13.35 12.55 13.8 12 13.8C11.45 13.8 11 13.35 11 12.8V7.2C11 6.65 11.45 6.2 12 6.2ZM12 15.2C12.66 15.2 13.2 15.74 13.2 16.4C13.2 17.06 12.66 17.6 12 17.6C11.34 17.6 10.8 17.06 10.8 16.4C10.8 15.74 11.34 15.2 12 15.2Z"/></svg></div>
-            <div class="tx">하이패스 등 정산되지 않은 요금이 있으면 이번 결제에 함께 청구될 수 있어요.</div>
+            <div style="height:1px;background:var(--gray200);margin:8px 0 2px;"></div>
+            <div class="total"><span class="k">총 결제 금액</span><span class="v">30,000원</span></div>
           </div>
 
-          <!-- 결제수단 -->
+          <!-- 결제 수단 -->
           <div class="sec-t" style="padding-bottom:8px;">결제 수단</div>
           <div class="card" style="margin-top:0;">
             <div class="pm">
               <div class="l"><div class="badge-pay">pay</div><div><div class="nm">쏘카페이</div><div class="sub">쏘카에 등록된 결제수단</div></div></div>
             </div>
             <div style="height:1px;background:var(--gray200);margin:12px 0;"></div>
-            <div style="font-size:13px;color:var(--text-secondary);line-height:1.5;">추가 구매는 쏘카에 등록하신 결제수단으로 결제되며 변경할 수 없어요.<br>구매 후 부가서비스만 단독 취소는 고객센터로 문의해주세요. 예약을 취소하면 부가서비스도 함께 취소돼요.</div>
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.5;">추가 구매는 쏘카에 등록하신 결제수단으로 결제되며 변경할 수 없어요.</div>
           </div>
 
-          <!-- 약관 -->
+          <!-- 예약 전 주의 사항 -->
+          <div class="sec-t" style="padding-bottom:8px;">예약 전 주의 사항</div>
+          <div class="card" style="margin-top:0;">
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">부가서비스는 개별 취소나 부분 환불이 어려워요. 예약을 취소하면 함께 취소돼요.<br>하이패스 등 추가 비용은 이번 결제에 포함되지 않고, 반납 후 등록된 기본 카드로 자동 결제돼요.</div>
+          </div>
+
+          <!-- 약관 및 이용 동의 -->
           <div style="background:#fff;margin-top:12px;border-top:1px solid var(--gray200);border-bottom:1px solid var(--gray200);">
             <div class="agree">
               <div class="chk"><svg width="14" height="14" viewBox="0 0 24 24"><path style="fill:#FFFFFF;" d="M22.3191 4.84576C22.8268 5.35344 22.8268 6.17655 22.3191 6.68424L10.3591 18.6442C10.1153 18.888 9.78467 19.025 9.43989 19.025C9.09511 19.025 8.76445 18.888 8.52065 18.6442L2.08065 12.2042C1.57297 11.6966 1.57297 10.8734 2.08065 10.3658C2.58833 9.85808 3.41145 9.85808 3.91913 10.3658L9.43989 15.8865L20.4806 4.84576C20.9883 4.33808 21.8114 4.33808 22.3191 4.84576Z"/></svg></div>
               <div class="tx"><b>[필수]</b> 카시트 대여 동의 사항</div>
+              <div class="arw"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
+            </div>
+            <div class="agree" style="border-top:1px solid var(--gray100);">
+              <div class="chk"><svg width="14" height="14" viewBox="0 0 24 24"><path style="fill:#FFFFFF;" d="M22.3191 4.84576C22.8268 5.35344 22.8268 6.17655 22.3191 6.68424L10.3591 18.6442C10.1153 18.888 9.78467 19.025 9.43989 19.025C9.09511 19.025 8.76445 18.888 8.52065 18.6442L2.08065 12.2042C1.57297 11.6966 1.57297 10.8734 2.08065 10.3658C2.58833 9.85808 3.41145 9.85808 3.91913 10.3658L9.43989 15.8865L20.4806 4.84576C20.9883 4.33808 21.8114 4.33808 22.3191 4.84576Z"/></svg></div>
+              <div class="tx"><b>[필수]</b> 예약 정보 확인 및 모든 약관 동의</div>
               <div class="arw"><svg width="20" height="20" viewBox="0 0 24 24"><path style="fill:#B4BBCB;" d="M7.69292 2.69328C8.08344 2.30276 8.71661 2.30276 9.10713 2.69328L17.7071 11.2933C18.0977 11.6838 18.0977 12.317 17.7071 12.7075L9.10713 21.3075C8.71661 21.698 8.08344 21.698 7.69292 21.3075C7.30239 20.917 7.30239 20.2838 7.69292 19.8933L15.5858 12.0004L7.69292 4.1075C7.30239 3.71697 7.30239 3.08381 7.69292 2.69328Z"/></svg></div>
             </div>
           </div>
